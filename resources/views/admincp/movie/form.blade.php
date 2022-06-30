@@ -82,7 +82,7 @@
                         <tr>
                             <th scope="row">{{$key}}</th>
                             <td>{{$cate ->title}}</td>
-                            <td><img width="60%" src="{{asset('/uploads/movie'.$cate ->image)}}"></td>
+                            <td><img width="60%" src="{{asset('uploads/movie/'.$cate ->image)}}"></td>
                             <td>{{$cate -> description}}</td>
                             <td>{{$cate -> slug}}</td>
                             <td>

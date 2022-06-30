@@ -32,6 +32,8 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 //route admin
 Route::resource('/category', CategoryController::class);
+Route::post('resorting',[CategoryController::class,'resorting'])->name('resorting');
+
 Route::resource('/genre', GenreController::class);
 Route::resource('/country', CountryController::class);
 Route::resource('/episode', EpisodeController::class);
