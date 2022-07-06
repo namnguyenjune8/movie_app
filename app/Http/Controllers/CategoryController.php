@@ -19,29 +19,28 @@ class CategoryController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-
         $list = Category::orderBy('position','ASC')->get();
-        return view('admincp.category.form',compact('list'));
+        return view('admincp.category.form', compact('list'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $data = $request -> all();
+        $data = $request->all();
         $category = new Category();
         $category->title = $data['title'];
         $category->slug = $data['slug'];
-        $category->description =$data['description'];
-        $category->status =$data['status'];
+        $category->description = $data['description'];
+        $category->status = $data['status'];
         $category->save();
         return redirect()->back();
     }
@@ -61,13 +60,13 @@ class CategoryController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $category = Category::find($id);
         $list = Category::orderBy('position','ASC')->get();
-        return view('admincp.category.form',compact('list','category'));
+        return view('admincp.category.form', compact('list','category'));
     }
 
     /**
@@ -75,16 +74,16 @@ class CategoryController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $data = $request -> all();
+        $data = $request->all();
         $category = Category::find($id);
         $category->title = $data['title'];
         $category->slug = $data['slug'];
-        $category->description =$data['description'];
-        $category->status =$data['status'];
+        $category->description = $data['description'];
+        $category->status = $data['status'];
         $category->save();
         return redirect()->back();
     }
@@ -100,10 +99,10 @@ class CategoryController extends Controller
         Category::find($id)->delete();
         return redirect()->back();
     }
-    public function resorting(Request $request){
+    public function resorting(Request  $request){
         $data = $request->all();
 
-        foreach ($data['array_id']as $key=>$value){
+        foreach ($data['array_id'] as $key => $value) {
             $category = Category::find($value);
             $category->position = $key;
             $category->save();

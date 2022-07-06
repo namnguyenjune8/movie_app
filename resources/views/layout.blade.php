@@ -29,10 +29,9 @@
 
     <link rel='dns-prefetch' href='//s.w.org' />
 
-    <link rel='stylesheet' id='bootstrap-css' href='{{asset('css/bootstrap.min.css?ver=5.7.2')}}' media='all' />
-
-    <link rel='stylesheet' id='style-css' href='{{asset('css/style.css?ver=5.7.2')}}' media='all' />
-    <link rel='stylesheet' id='wp-block-library-css' href='{{asset('css/style.min.css?ver=5.7.2')}}' media='all' />
+    <link rel='stylesheet' id='bootstrap-css' href='{{asset('css/bootstrap.min.css')}}' media='all' />
+    <link rel='stylesheet' id='style-css' href='{{asset('css/style.css')}}' media='all' />
+    <link rel='stylesheet' id='wp-block-library-css' href='{{asset('css/style.min.css')}}' media='all' />
     <script type='text/javascript' src='{{asset('js/jquery.min.js?ver=5.7.2')}}' id='halim-jquery-js'></script>
     <style type="text/css" id="wp-custom-css">
         .textwidget p a img {
@@ -102,7 +101,7 @@
                             <a title="Thể Loại" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Thể Loại <span class="caret"></span></a>
                             <ul role="menu" class=" dropdown-menu">
                                 @foreach($genre as $key => $gen)
-                                    <li><a title="{{$gen ->title}}" href="{{route('genre',$gen->slug)}}">{{$gen ->title}}</a></li>
+                                    <li><a title="{{$gen->title}}" href="{{route('genre',$gen->slug)}}">{{$gen->title}}</a></li>
                                 @endforeach
                             </ul>
                         </li>
@@ -110,14 +109,13 @@
                             <a title="Quốc Gia" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Quốc Gia <span class="caret"></span></a>
                             <ul role="menu" class=" dropdown-menu">
                                 @foreach($country as $key => $count)
-                                    <li><a title="{{$count ->title}}" href="{{route('country',$count->slug)}}">{{$count ->title}}</a></li>
+                                    <li><a title="{{$count->title}}" href="{{route('country',$count->slug)}}">{{$count->title}}</a></li>
                                 @endforeach
                             </ul>
                         </li>
                         @foreach($category as $key => $cate)
-                        <li class="mega"><a title="{{$cate ->title}}" href="{{route('category',$cate->slug)}}">{{$cate ->title}}</a></li>
+                            <li class="mega"><a title="{{$cate->title}}" href="{{route('category',$cate->slug)}}">{{$cate->title}}</a></li>
                         @endforeach
-
 
                     </ul>
                 </div>
